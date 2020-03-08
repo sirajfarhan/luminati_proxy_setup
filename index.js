@@ -12,20 +12,25 @@ const options = {
   },
   body: {
     proxy: {
-      preset: "session_long",
-      zone: "",
-      proxy_type:"persist",
-      pool_size:1,
-      session:"",
-      port:24000
+      preset: 'session_long',
+      zone: '',
+      proxy_type: 'persist',
+      pool_size: 1,
+      session: '',
+      port: 24000
     }
   }
 };
 
 async function main() {
-    await delay(20000);
-    await request(options);
-    await delay(5000);
+    while (true) {
+      try {
+        await request(options);
+        break;
+      } catch (e) {
+        await delay(5000);
+      }
+    }
 }
 
 main()
