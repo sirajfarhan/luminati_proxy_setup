@@ -23,7 +23,7 @@ const options = {
 };
 
 async function main() {
-    await delay(5000);
+    await delay(20000);
     await request(options);
     await delay(5000);
 }
