@@ -3,7 +3,7 @@ const delay = require('delay');
 
 const options = {
   method: 'POST',
-  uri: 'http://0.0.0.0:22999/api/proxies',
+  uri: 'http://luminati:22999/api/proxies',
   json: true,
   headers: {
     'Connection': 'keep-alive',
