@@ -17,7 +17,8 @@ const options = {
       proxy_type: 'persist',
       pool_size: 1,
       session: '',
-      port: 24000
+      port: 24000,
+      whitelist_ips: ['0.0.0.0/0']
     }
   }
 };
