@@ -14,3 +14,4 @@ jobs:
         secret_access_key: ${{ secrets.AWS_ECR_ACCESS_SECRET }}
         account_id: ${{ secrets.AWS_ACCOUNT_ID }}
         region: ${{ secrets.AWS_ECR_LOCATION }}
+        repo: siraj-ai/scraper
