@@ -1,0 +1,16 @@
+name: Publish docker
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  ecr-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: Terranovax/aws-ecr-deploy@v1
+      with:
+        access_key_id: ${{ secrets.AWS_ECR_ACCESS_ID }}
+        secret_access_key: ${{ secrets.AWS_ECR_ACCESS_SECRET }}
+        account_id: ${{ secrets.AWS_ACCOUNT_ID }}
+        region: ${{ secrets.AWS_ECR_LOCATION }}
