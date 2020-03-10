@@ -15,3 +15,4 @@ jobs:
         account_id: ${{ secrets.AWS_ACCOUNT_ID }}
         region: ${{ secrets.AWS_ECR_LOCATION }}
         repo: siraj-ai/scraper
+        path: ../
