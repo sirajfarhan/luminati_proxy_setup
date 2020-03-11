@@ -1,37 +1,86 @@
-const request = require('request-promise');
+const { Builder, By } = require('selenium-webdriver');
+const { Options } = require('selenium-webdriver/chrome');
 const delay = require('delay');
 
-const options = {
-  method: 'POST',
-  uri: 'http://luminati:22999/api/proxies',
-  json: true,
-  headers: {
-    'Connection': 'keep-alive',
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36',
-    'Content-Type': 'application/json'
-  },
-  body: {
-    proxy: {
-      preset: 'session_long',
-      zone: '',
-      proxy_type: 'persist',
-      pool_size: 1,
-      session: '',
-      port: 24000,
-      whitelist_ips: ['0.0.0.0/0']
-    }
-  }
-};
+const { IDENTIFIER, PASSWORD, URL } = process.env;
+
+const options = new Options()
+    .headless()
+    .windowSize({
+        width: 1024,
+        height: 768
+    });
 
 async function main() {
+    let driver = null;
+
     while (true) {
-      try {
-        await request(options);
-        break;
-      } catch (e) {
+        try {
+            const { value: { ready } } = await request('http://selenium:4444/wd/hub/status');
+            if(ready) break;
+        } catch (e) {
+
+        }
         await delay(5000);
-      }
     }
+
+
+    console.log('CONNECTING SELENIUM SERVER');
+
+    driver = await new Builder()
+        .forBrowser('chrome')
+        .usingServer('http://selenium:4444/wd/hub')
+        .setChromeOptions(options)
+        .build();
+
+    console.log('CONNECTED');
+
+    await driver.get(URL);
+
+    const googleButton = await driver.findElement(By.className('btn_google'));
+
+    await googleButton.click();
+    await delay(5000);
+
+    const username = await driver.findElement(By.name('identifier'));
+    const usernameNext = await driver.findElement(By.id('identifierNext'));
+    await username.sendKeys(IDENTIFIER);
+    await usernameNext.click();
+    await delay(2000);
+
+    const password = await driver.findElement(By.name('password'));
+    const passwordNext = await driver.findElement(By.id('passwordNext'));
+    await password.sendKeys(PASSWORD);
+    await passwordNext.click();
+    await delay(5000);
+
+    const loginConfirmation = await driver.findElement(By.css('[type="button"]'));
+    await loginConfirmation.click();
+    await delay(10000);
+
+    const startButton = await getElementWithText(driver, 'button', 'start');
+    await startButton.click();
+
+    await delay(1000);
+
+    const saveButton = await getElementWithText(driver, 'button', 'save');
+    await saveButton.click();
+
+    await delay(1000);
+
+    const okButton = await getElementWithText(driver, '.footer > button', 'ok');
+    await okButton.click();
+
+    await driver.quit();
 }
 
-main()
+async function getElementWithText(driver, element, text) {
+    return driver.executeScript(`
+        return Array.prototype.slice.call(document.querySelectorAll('${element}'))
+            .filter(function (el) {
+                return el.textContent ? el.textContent.toLowerCase().includes('${text}') : false
+        })[0];
+    `);
+}
+
+main();
