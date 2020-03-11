@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2bfb3750-49cb-419d-be61-ddd23d829a17" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/R_User_Library.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/R_User_Library.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="2bfb3750-49cb-419d-be61-ddd23d829a17" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,7 +63,7 @@
       <workItem from="1583687552060" duration="506000" />
       <workItem from="1583823103427" duration="660000" />
       <workItem from="1583824637479" duration="2389000" />
-      <workItem from="1583908384044" duration="3437000" />
+      <workItem from="1583908384044" duration="3607000" />
     </task>
     <servers />
   </component>
@@ -85,6 +79,22 @@
       <screen x="0" y="23" width="1440" height="808" />
     </state>
     <state x="408" y="170" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.808@0.23.1440.808" timestamp="1583824399734" />
+    <state width="1356" height="194" key="GridCell.Tab.0.bottom" timestamp="1583912746476">
+      <screen x="0" y="23" width="1440" height="808" />
+    </state>
+    <state width="1356" height="194" key="GridCell.Tab.0.bottom/0.23.1440.808@0.23.1440.808" timestamp="1583912746476" />
+    <state width="1356" height="194" key="GridCell.Tab.0.center" timestamp="1583912746475">
+      <screen x="0" y="23" width="1440" height="808" />
+    </state>
+    <state width="1356" height="194" key="GridCell.Tab.0.center/0.23.1440.808@0.23.1440.808" timestamp="1583912746475" />
+    <state width="1356" height="194" key="GridCell.Tab.0.left" timestamp="1583912746474">
+      <screen x="0" y="23" width="1440" height="808" />
+    </state>
+    <state width="1356" height="194" key="GridCell.Tab.0.left/0.23.1440.808@0.23.1440.808" timestamp="1583912746474" />
+    <state width="1356" height="194" key="GridCell.Tab.0.right" timestamp="1583912746475">
+      <screen x="0" y="23" width="1440" height="808" />
+    </state>
+    <state width="1356" height="194" key="GridCell.Tab.0.right/0.23.1440.808@0.23.1440.808" timestamp="1583912746475" />
     <state x="413" y="259" key="com.intellij.ide.util.TipDialog" timestamp="1583827223588">
       <screen x="0" y="23" width="1440" height="808" />
     </state>

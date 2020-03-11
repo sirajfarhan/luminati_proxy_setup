@@ -1,6 +1,7 @@
 const { Builder, By } = require('selenium-webdriver');
 const { Options } = require('selenium-webdriver/chrome');
 const delay = require('delay');
+const request = require('request-promise');
 
 const { IDENTIFIER, PASSWORD, URL } = process.env;
 
@@ -16,7 +17,10 @@ async function main() {
 
     while (true) {
         try {
-            const { value: { ready } } = await request('http://selenium:4444/wd/hub/status');
+            const { value: { ready } } = await request({
+                uri: 'http://selenium:4444/wd/hub/status',
+                json: true,
+            });
             if(ready) break;
         } catch (e) {
 
